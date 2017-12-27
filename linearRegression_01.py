@@ -9,10 +9,10 @@ loss = tf.reduce_sum(squared_delta)
 
 optimizer = tf.train.GradientDescentOptimizer(0.01)
 train = optimizer.minimize(loss)
-int = tf.global_variables_initializer()
+init = tf.global_variables_initializer()
 
 sess = tf.Session();
-sess.run(int)
+sess.run(init)
 for i in range(1000):
 	sess.run(train, {X : [1, 2, 3, 4], Y : [9, 8, 7, 6]})
 
