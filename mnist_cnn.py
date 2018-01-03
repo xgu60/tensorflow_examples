@@ -83,8 +83,8 @@ accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 #start training
 train_accuracy = []
 #test_accuracy = []
-for _ in range(10000):
-	batch_xs, batch_xy = mnist.train.next_batch(50)
+for _ in range(2000):
+	batch_xs, batch_xy = mnist.train.next_batch(100)
 	sess.run(train, feed_dict={x: batch_xs, y: batch_xy, keep_prob: 1.0})
 	train_accuracy.append(sess.run(accuracy, 
 		feed_dict={x: batch_xs, y: batch_xy, keep_prob: 1.0}))
@@ -94,7 +94,7 @@ for _ in range(10000):
 
 #plot the accuracy of training batch
 #plt.plot(list(range(100)), train_accuracy, 'r', list(range(100)), test_accuracy, 'b')
-plt.plot(list(range(10000)), train_accuracy, 'r')
+plt.plot(list(range(2000)), train_accuracy, 'r')
 plt.ylabel('accuracy for training batches')
 plt.show()
 
